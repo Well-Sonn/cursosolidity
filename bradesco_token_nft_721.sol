@@ -19,7 +19,7 @@ contract SunnyDayCursoBradesco is ERC721, ERC721URIStorage, ERC721Burnable, Owna
     }
 
     function _baseURI() internal pure override returns (string memory) {
-        return "https://jeffprestes.github.io/nft-bradesco/";
+        return "https://Well-Sonn.github.io/nft-Day/";
     }
 
     function safeMint(address to, string memory uri) public onlyOwner {
