@@ -1,3 +1,5 @@
+//contract: 0xDBCdE3CA4eBC6A5F560B0a776E9dbaCa92abf9c7
+
 // SPDX-License-Identifier: CC-BY-4.0
 // (c) Desenvolvido por Matheus Ricardo Tomas
 // This work is licensed under a Creative Commons Attribution 4.0 International License.
@@ -49,5 +51,13 @@ contract liability {
         return exercicioToken.transfer(_enderecoDestino, _amount);
     }
 
+    function meuSaldoNativo() public view returns(uint256) {
+        return address(this).balance;
+    }
+
+    function tranferEther(uint256 _amount, address payable recebedor) public payable {
+        require(_amount <= address(this).balance, "saldo insuficiente");
+        recebedor.transfer(_amount);
+    }
 
 }
