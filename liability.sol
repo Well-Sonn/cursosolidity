@@ -18,6 +18,8 @@ contract liability {
     }
 
     Cliente private cliente;
+     mapping(address => uint256) private tokenBalances;
+
 
     constructor(
         string memory _primeiroNome,
@@ -43,7 +45,11 @@ contract liability {
         return exercicioToken.mint(address(this), _amount);
     }
 
-    function transferirTokens(address endereco, uint256 _valor) public returns (bool) {
-        return exercicioToken.transfer(endereco, _valor);
+    function transferirTokens(address payable _destinatario, uint256 _amount) public returns (bool) {
+        tokenBalances[msg.sender] -= _amount;
+        exercicioToken.transfer(_destinatario, _amount);
+        return true;
     }
+
+
 }
