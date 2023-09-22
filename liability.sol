@@ -45,10 +45,8 @@ contract liability {
         return exercicioToken.mint(address(this), _amount);
     }
 
-    function transferirTokens(address payable _destinatario, uint256 _amount) public returns (bool) {
-        tokenBalances[msg.sender] -= _amount;
-        exercicioToken.transfer(_destinatario, _amount);
-        return true;
+    function transfereToken(address _enderecoDestino, uint256 _amount) public returns (bool){
+        return exercicioToken.transfer(_enderecoDestino, _amount);
     }
 
 
